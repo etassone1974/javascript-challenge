@@ -2,7 +2,7 @@
 var tableData = data;
 
 // Declare variable to hold filtered set of data
-let filteredData;
+var filteredData;
 
 // YOUR CODE HERE!
 
