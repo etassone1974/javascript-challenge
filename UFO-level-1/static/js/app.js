@@ -31,7 +31,7 @@ function runEnter() {
   // If the inputValue is empty i.e. no search terms given
   // Retrieve entire dataset for displaying in table
   if (inputValue == "") {
-      console.log("Empty search field!")
+      console.log("Empty search field - retrieving all data")
       // Set filteredData to retrieve all data by assigning it to tableData
       filteredData = tableData;
   }
