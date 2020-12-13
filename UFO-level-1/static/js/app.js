@@ -26,7 +26,7 @@ function runEnter() {
   let inputElement = d3.select("#datetime");
 
   // Get the value property of the input element
-  let inputValue = inputElement.property("value");
+  let inputValue = inputElement.property("value").trim();
 
   // If the inputValue is empty i.e. no search terms given
   // Retrieve entire dataset for displaying in table
