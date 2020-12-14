@@ -4,28 +4,32 @@ var tableData = data;
 // Declare variable to hold filtered set of data
 var filteredData;
 
-// YOUR CODE HERE!
+// Select the Filter Table button by ID
+let filterButton = d3.select("#filter-btn");
 
-// Select the button
-let button = d3.select("#filter-btn");
-
-// Select the form
+// Select the form by ID
 let form = d3.select("#form");
 
-// Create event handlers 
-button.on("click", runEnter);
-form.on("submit", runEnter);
+// Create event handlers and call filterTable function for filtering and displaying
+// table of UFO sightings
+// Both pressing the "Filter Table" button and clicking "Enter" after inputting a date
+// call the filterTable function and display the table of results
+// Clearing the input field and pressing "Enter" or the "Filter Table" button
+// effectively clears the filter and displays all the data again
+filterButton.on("click", filterTable);
+form.on("submit", filterTable);
 
 // Complete the event handler function for the form
-function runEnter() {
+function filterTable() {
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
-  // Select the input element and get the raw HTML node
+  // Select the Date input element and get the raw HTML node
   let inputElement = d3.select("#datetime");
 
-  // Get the value property of the input element
+  // Get the value property of the Date input element
+  // Use trim() to remove any leading or trailing whitespace
   let inputValue = inputElement.property("value").trim();
 
   // If the inputValue is empty i.e. no search terms given
@@ -38,8 +42,13 @@ function runEnter() {
   else {
     // Write value to console for checking
      console.log(inputValue);
+     // Use arrow function over tableData to filter data to sightings in which the date
+     // matches the date value input into the filter
+     // Store in filteredData
      filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
   }
+  
+  // Output the result of the date filter i.e. filteredData to console
   console.log(filteredData);
 
   // Select the body of the table to display the results
@@ -53,9 +62,12 @@ function runEnter() {
     // Append the row tag for each new row in the table
     let row = tbody.append("tr");
     // Iterate through each key-value pair and add the data as cells in the table
-    // Consists of Date, City, State, Country, Shape, Duration, Comments
+    // Consists of Date, City, State, Country, Shape, Duration, Comments values
+    // Keys are: datetime, city, state, country, shape
     Object.entries(sighting).forEach(([key, value]) => {
+    // Each cell entry must begin with the td tag
     let cell = row.append("td");
+    // The text value written in the cell is derived from the value element of the key-value pair
     cell.text(value);
     });
   });

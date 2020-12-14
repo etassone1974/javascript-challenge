@@ -10,6 +10,7 @@ var tableData = data;
 // Also allows for filters to be used and displayed in the table  
 // and then add more filters to "drill down" more selectively into the data
 // Would be useful for larger data sets
+// Entering no search terms and just clicking the "Filter Table" button returns and displays all data
 var filteredData1;
 var filteredData2;
 var filteredData3;
@@ -187,7 +188,7 @@ function filterTable() {
     // Consists of Date, City, State, Country, Shape, Duration, Comments values
     // Keys are: datetime, city, state, country, shape
     Object.entries(sighting).forEach(([key, value]) => {
-    // Eacch cell entry must begin with the td tag
+    // Each cell entry must begin with the td tag
     let cell = row.append("td");
     // The text value written in the cell is derived from the value element of the key-value pair
     cell.text(value);
