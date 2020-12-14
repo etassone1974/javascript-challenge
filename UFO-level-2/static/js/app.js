@@ -3,7 +3,7 @@ var tableData = data;
 
 // Declare variables to hold filtered sets of data
 // Using multiple variables to keep on filtering the filtered data
-// i.e. As one filter is applied e.g. a date, another can be added in the form of a country
+// i.e. As one filter is applied e.g. a date, another can be added in the form of e.g. a country
 // applied as a filter to the first set of data
 // Possible then to filter based on values in date, city, state, country and shape filters
 // or all five or any combination of these filters
