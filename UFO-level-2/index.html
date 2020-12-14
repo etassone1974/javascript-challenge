@@ -32,10 +32,12 @@
             <div class="panel panel-default">
               <div class="panel-heading">Filter Search</div>
               <div class="panel-body">
+                <!-- Add ID to form for D3 -->
                 <form id="form">
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
+                         <!-- Add IDs to inputs for fltering data -->
                         <label for="date">Enter a Date</label>
                         <input class="form-control" id="datetime" type="text" placeholder="m/d/yyyy">
                         <label for="date">Enter a City</label>
@@ -50,6 +52,8 @@
                     </ul>
                   </div>
                   <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                   <!-- Add Reset Filters button to remove all filtering options -->
+                  <button id="reset-btn" type="button" class="btn btn-default">Reset Filters</button>
                 </form>
               </div>
             </div>

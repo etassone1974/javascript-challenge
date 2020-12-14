@@ -1,28 +1,28 @@
 // Assign tableData from data.js
 var tableData = data;
 
-// Declare variable to hold filtered set of data
-var filteredData;
+// Declare variables to hold filtered sets of data
+var filteredData1;
 var filteredData2;
 var filteredData3;
 var filteredData4;
 var filteredData5;
 
-// YOUR CODE HERE!
-
 // Select the button
-let button = d3.select("#filter-btn");
+let filterButton = d3.select("#filter-btn");
+let resetButton = d3.select("#reset-btn");
 
-// Select the form
-// let form = d3.select("#form");
+// Create event handler and call filterTable function for filtering and displaying
+// table of UFO sightings
+filterButton.on("click", filterTable);
+resetButton.on("click", resetFilter);
 
-// Create event handlers 
-button.on("click", runEnter);
-// form.on("submit", runEnter);
-
+function resetFilter() {
+  document.getElementById("form").reset();
+}
 
 // Complete the event handler function for the form
-function runEnter() {
+function filterTable() {
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
@@ -62,12 +62,12 @@ function runEnter() {
   if (inputDateValue == "") {
       console.log("Empty date search field");
       // Set filteredData to retrieve all data by assigning it to tableData
-      filteredData = tableData;
+      filteredData1 = tableData;
   }
   else {
     // Write value to console for checking
      console.log(inputDateValue);
-     filteredData = tableData.filter(sighting => sighting.datetime === inputDateValue);
+     filteredData1 = tableData.filter(sighting => sighting.datetime === inputDateValue);
   }
 
   // If the inputValue is empty i.e. no search terms given
@@ -76,12 +76,12 @@ function runEnter() {
     // Set filteredData to retrieve all data by assigning it to tableData
     // filteredData = tableData;
     console.log("Empty city search field");
-    filteredData2 = filteredData;
+    filteredData2 = filteredData1;
   }
   else {
   // Write value to console for checking
     console.log(inputCityValue);
-    filteredData2 = filteredData.filter(sighting => sighting.city === inputCityValue);
+    filteredData2 = filteredData1.filter(sighting => sighting.city === inputCityValue);
   }
 
 
