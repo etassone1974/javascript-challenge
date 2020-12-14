@@ -30,7 +30,7 @@ filterButton.on("click", filterTable);
 resetButton.on("click", resetFilter);
 
 // Define resetFilter function which clears all inputs in the form with "form" as ID
-// Also results displayed filtered data
+// Also clears results displayed as filtered data
 function resetFilter() {
   document.getElementById("form").reset();
   // Select the body of the table that displays results
