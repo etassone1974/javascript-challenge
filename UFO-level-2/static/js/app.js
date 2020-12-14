@@ -7,6 +7,9 @@ var tableData = data;
 // applied as a filter to the first set of data
 // Possible then to filter based on values in date, city, state, country and shape filters
 // or all five or any combination of these filters
+// Also allows for filters to be used and displayed in the table  
+// and then add more filters to "drill down" more selectively into the data
+// Would be useful for larger data sets
 var filteredData1;
 var filteredData2;
 var filteredData3;
@@ -27,8 +30,13 @@ filterButton.on("click", filterTable);
 resetButton.on("click", resetFilter);
 
 // Define resetFilter function which clears all inputs in the form with "form" as ID
+// Also results displayed filtered data
 function resetFilter() {
   document.getElementById("form").reset();
+  // Select the body of the table that displays results
+  let tbody = d3.select("tbody");
+  // Clear output of the table
+  tbody.html("");
 }
 
 // Complete the event handler function for the form and constructing the filtered data
